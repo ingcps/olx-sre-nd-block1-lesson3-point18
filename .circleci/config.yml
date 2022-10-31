@@ -1,0 +1,19 @@
+version: 2.1
+
+commands:
+  print_pipeline_id:
+    description: "A very simple command for demonstration purposes"
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
+
+workflows:
+  olx-sre-nd-block1-lesson3-point18-reusable-commands:
+    jobs:
+      - use_command_job
+
+jobs:
+  use_command_job:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - print_pipeline_id
